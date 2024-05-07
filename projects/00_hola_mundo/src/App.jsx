@@ -4,38 +4,33 @@ import { TwitterFollowCard } from './TwitterFollowCard';
 
 export function App() {
 
-    const formatUserName = (userName) => `@${userName}`
-
     return (
         <section className='tw-followCards'>
 
             <TwitterFollowCard
-            formatUserName={formatUserName}
             isFollowing
-            userName="midudev"
-            name="Miguel Ángel Durán"
-            />
+            userName="midudev">
+                Miguel Ángel Durán
+            </TwitterFollowCard>
 
             <TwitterFollowCard
-            formatUserName={formatUserName}
             isFollowing={false}
-            userName="pheralb"
-            name="Pablo Hernández"
-            />
+            userName="pheralb">
+                Pablo Hernández
+            </TwitterFollowCard>
+            
 
             <TwitterFollowCard
-            formatUserName={formatUserName}
             isFollowing
-            userName="elon_musk" 
-            name="Elon Musk"
-            />
+            userName="elon_musk">
+                Elon Musk
+            </TwitterFollowCard>
 
             <TwitterFollowCard
-            formatUserName={formatUserName}
             isFollowing
-            userName="cristiano_ronaldo"
-            name="Cristiano Ronaldo"
-            />
+            userName="cristiano_ronaldo">
+                Cristiano Ronaldo
+            </TwitterFollowCard>
 
         </section>
 
