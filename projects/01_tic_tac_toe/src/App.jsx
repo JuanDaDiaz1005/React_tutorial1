@@ -3,13 +3,11 @@ import './App.css'
 
 import confetti from 'canvas-confetti'
 
-import { Square } from './components/Square.jsx'
 import { TURNS } from './constants.js'
-
 import { checkWinner, checkEndGame } from './logic/board.js'
-
 import { WinnerModal } from './components/WinnerModal.jsx'
-
+import { Turns } from './components/Turns.jsx'
+import { Board } from './components/Board.jsx'
 
 function App() {
 
@@ -19,7 +17,6 @@ function App() {
   const [winner, setWinner] = useState(null)
 
   const updateBoard = (index) => {
-
     if (board[index] || winner) {
       return
     }
@@ -38,7 +35,7 @@ function App() {
     } else if (checkEndGame(newBoard)){
       setWinner(false)
     }
-
+  
   }
 
   const resetGame = () => {
@@ -50,32 +47,9 @@ function App() {
   return (
     <main className='board'>
       <h1>Tic tac toe</h1>
-      <section className='game'> 
-        {
-          board.map((square, index) => {
-            return (
-              <Square
-              key={index}
-              index={index}
-              updateBoard={updateBoard}
-              >
-                {square}
-              </Square>
-            )
-          }
-        )}
-      </section>
-      <section className='turn'>
-        <Square isSelected = {turn === TURNS.X}>
-          {TURNS.X}
-        </Square>
-        <Square isSelected = {turn === TURNS.O}>
-          {TURNS.O}
-        </Square>
-      </section>
-      
+      <Board board = {board} updateBoard = {updateBoard}/>
+      <Turns turn={turn} />
       <WinnerModal winner= {winner} resetGame= {resetGame} />
-
       <section>
         <button onClick={resetGame}>
           Empezar de nuevo
